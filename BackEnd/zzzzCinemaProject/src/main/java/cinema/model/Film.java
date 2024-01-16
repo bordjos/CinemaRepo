@@ -27,26 +27,29 @@ public class Film {
 	@Column(nullable = false)
 	private String name;
 
-	@Column
+	@Column(nullable = false)
 	private String director;
 
-	@Column
+	@Column(nullable = false)
 	private String cast;
 
 	@Column(nullable = false)
 	private int length;
 
-	@Column
+	@Column(nullable = false)
 	private String distributor;
 
-	@Column
+	@Column(nullable = false)
 	private String country;
 
 	@Column(nullable = false)
 	private int year;
 
-	@Column
+	@Column(nullable = false)
 	private String about;
+
+	@Column(nullable = false)
+	private String posterUrl;
 
 	@OneToMany(mappedBy = "film", cascade = CascadeType.ALL)
 	private List<Projection> projections = new ArrayList<>();
@@ -125,6 +128,14 @@ public class Film {
 
 	public void setAbout(String about) {
 		this.about = about;
+	}
+
+	public String getPosterUrl() {
+		return posterUrl;
+	}
+
+	public void setPosterUrl(String posterUrl) {
+		this.posterUrl = posterUrl;
 	}
 
 	public List<Projection> getProjections() {
