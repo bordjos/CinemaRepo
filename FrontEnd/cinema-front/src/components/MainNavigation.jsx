@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 
+import { logout } from "../services/auth";
 import classes from "./MainNavigation.module.css";
 
 // using NavLink here instead of Link so we can get an is active props
@@ -59,6 +60,29 @@ function MainNavigation() {
               Contact
             </NavLink>
           </li>
+          {window.localStorage.getItem("jwt") ? (
+            <li>
+              <NavLink
+                onClick={logout}
+                className={({ isActive }) =>
+                  isActive ? classes.active : undefined
+                }
+              >
+                Log Out
+              </NavLink>
+            </li>
+          ) : (
+            <li>
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  isActive ? classes.active : undefined
+                }
+              >
+                Log In
+              </NavLink>
+            </li>
+          )}
         </ul>
       </nav>
     </header>

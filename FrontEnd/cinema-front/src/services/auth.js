@@ -18,16 +18,16 @@ export const login = async (username, password) => {
     console.log("Decoded:" + decoded);
 
     window.localStorage.setItem("role", decoded.role.authority);
-    window.location.replace("http://localhost:3000");
+    window.location.replace("http://localhost:5173");
   } catch (e) {
     console.log(e);
     alert("Login FAILED");
-    window.location.replace("http://localhost:3000");
+    window.location.replace("http://localhost:5173");
   }
 };
 
 export const logout = () => {
   window.localStorage.removeItem("jwt");
   window.localStorage.removeItem("role");
-  window.location.replace("http://localhost:3000");
+  window.location.replace("http://localhost:5173");
 };

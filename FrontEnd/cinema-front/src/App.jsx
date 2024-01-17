@@ -9,6 +9,7 @@ import PriceList from "./pages/PriceList.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
 import Contact from "./pages/Contact.jsx";
 import Root from "./pages/Root.jsx";
+import Login from "./pages/Login.jsx";
 
 // the paths are set as relative
 const router = createBrowserRouter([
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
       { path: "price-list", element: <PriceList /> },
       { path: "about-us", element: <AboutUs /> },
       { path: "contact", element: <Contact /> },
+      { path: "login", element: <Login /> },
     ],
   },
 ]);
