@@ -11,12 +11,14 @@ import Contact from "./pages/Contact.jsx";
 import Root from "./pages/Root.jsx";
 import Login from "./pages/Login.jsx";
 import FilmsRoot from "./pages/films/FilmsRoot.jsx";
+import ErrorPage from "./pages/Error.jsx";
 
 // the paths are set as relative
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage />, //will be triggered if there was an error generated in any route related code (including loaders)
     children: [
       { index: true, element: <Home /> },
       {

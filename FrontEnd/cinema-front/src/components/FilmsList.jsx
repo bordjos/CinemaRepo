@@ -19,9 +19,10 @@ function FilmsList({ films }) {
                 <p>{film.year}</p>
               </div>
               <div className={classes.projections}>
+                <h4>Choose the time and make a reservation</h4>
                 <ul>
                   {Object.values(film.projectionsDTO).map((projection) => (
-                    <button>{projection.dateTime}</button>
+                    <button key={projection.id}>{projection.dateTime}</button>
                   ))}
                 </ul>
               </div>
