@@ -64,23 +64,13 @@ function MainNavigation() {
             <li>
               <NavLink
                 onClick={logout}
-                className={({ isActive }) =>
-                  isActive ? classes.active : undefined
-                }
               >
                 Log Out
               </NavLink>
             </li>
           ) : (
             <li>
-              <NavLink
-                to="/login"
-                className={({ isActive }) =>
-                  isActive ? classes.active : undefined
-                }
-              >
-                Log In
-              </NavLink>
+              <NavLink to="/login">Log In</NavLink>
             </li>
           )}
         </ul>

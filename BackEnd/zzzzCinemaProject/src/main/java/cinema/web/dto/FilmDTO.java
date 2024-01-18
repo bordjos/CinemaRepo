@@ -1,6 +1,8 @@
 package cinema.web.dto;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.validation.constraints.Max;
@@ -8,6 +10,8 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
+
+import cinema.model.Projection;
 
 public class FilmDTO {
 
@@ -43,7 +47,9 @@ public class FilmDTO {
 	@NotBlank(message = "The poster URL of the film is not set!")
 	private String posterUrl;
 
-	Map<Long, String> genres = new LinkedHashMap<>();
+	private Map<Long, String> genres = new LinkedHashMap<>();
+
+	private List<ProjectionDTO> projectionsDTO = new ArrayList<>();
 
 	public Long getId() {
 		return id;
@@ -131,6 +137,14 @@ public class FilmDTO {
 
 	public void setGenres(Map<Long, String> genres) {
 		this.genres = genres;
+	}
+
+	public List<ProjectionDTO> getProjectionsDTO() {
+		return projectionsDTO;
+	}
+
+	public void setProjectionsDTO(List<ProjectionDTO> projectionsDTO) {
+		this.projectionsDTO = projectionsDTO;
 	}
 
 }

@@ -16,15 +16,22 @@ public class FilmDTOToFilm implements Converter<FilmDTO, Film> {
 
 	private final FilmService filmService;
 	private final GenreService genreService;
+	private final ProjectionDTOToProjection toProjection;
+	
+//	@Autowired
+//	public FilmDTOToFilm(FilmService filmService, GenreService genreService) {
+//		super();
+//		this.filmService = filmService;
+//		this.genreService = genreService;
+//	}
 	
 	
-	@Autowired
-	public FilmDTOToFilm(FilmService filmService, GenreService genreService) {
+	public FilmDTOToFilm(FilmService filmService, GenreService genreService, ProjectionDTOToProjection toProjection) {
 		super();
 		this.filmService = filmService;
 		this.genreService = genreService;
+		this.toProjection = toProjection;
 	}
-
 
 	@Override
 	public Film convert(FilmDTO dto) {
@@ -36,10 +43,12 @@ public class FilmDTOToFilm implements Converter<FilmDTO, Film> {
 			film.setCast(dto.getCast());
 			film.setLength(dto.getLength());
 			film.setDistributor(dto.getDistributor());
+			film.setCountry(dto.getCountry());
 			film.setDirector(dto.getCountry());
 			film.setYear(dto.getYear());
 			film.setAbout(dto.getAbout());
 			film.setPosterUrl(dto.getPosterUrl());
+			film.setProjections(toProjection.convert(dto.getProjectionsDTO()));
 						
 													//go through each key and call a findOne() method on it
 			film.setGenres(dto.getGenres().keySet().stream().map(genreService::findOne).collect(Collectors.toSet())); 
@@ -47,6 +56,7 @@ public class FilmDTOToFilm implements Converter<FilmDTO, Film> {
 		
 		return film;
 	}
+
 	
 	
 	
