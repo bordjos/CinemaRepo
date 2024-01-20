@@ -2,7 +2,10 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Films, { loader as filmsLoader } from "./pages/films/Films.jsx";
-import FilmDetail from "./pages/films/FilmDetail.jsx";
+import FilmDetail, {
+  loader as filmDetailLoader,
+  action as deleteFilmAction,
+} from "./pages/films/FilmDetail.jsx";
 import NewFilm from "./pages/films/NewFilm.jsx";
 import EditFilm from "./pages/films/EditFilm.jsx";
 import PriceList from "./pages/PriceList.jsx";
@@ -12,6 +15,7 @@ import Root from "./pages/Root.jsx";
 import Login from "./pages/Login.jsx";
 import FilmsRoot from "./pages/films/FilmsRoot.jsx";
 import ErrorPage from "./pages/Error.jsx";
+import { action as manageFilmAction } from "./components/FilmForm.jsx";
 
 // the paths are set as relative
 const router = createBrowserRouter([
@@ -26,13 +30,24 @@ const router = createBrowserRouter([
         element: <FilmsRoot />,
         children: [
           {
-            index: true,
+            index: true, //same as path: ""
             element: <Films />,
             loader: filmsLoader,
           }, //loader - takes a function as a value, this function will be executed whenever we are about to visit this route and before the Component loads
-          { path: ":id", element: <FilmDetail /> },
-          { path: "new", element: <NewFilm /> },
-          { path: ":id/edit", element: <EditFilm /> },
+          {
+            path: ":id",
+            id: "film-detail", //we add the id prop here so the loader will be available here and we need to use the useRouteLoaderData() hook instead
+            loader: filmDetailLoader, //added nested routes so both pages can you the loader
+            children: [
+              {
+                index: true,
+                element: <FilmDetail />,
+                action: deleteFilmAction,
+              },
+              { path: "edit", element: <EditFilm />, action: manageFilmAction },
+            ],
+          },
+          { path: "new", element: <NewFilm />, action: manageFilmAction },
         ],
       },
       { path: "price-list", element: <PriceList /> },

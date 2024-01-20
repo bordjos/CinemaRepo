@@ -52,6 +52,8 @@ public class FilmController {
 	@PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<FilmDTO> update(@PathVariable Long id, @Valid @RequestBody FilmDTO filmDTO) {
 
+		System.out.println("OVO JE TO: " + filmDTO);
+		
 		if (!id.equals(filmDTO.getId())) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}

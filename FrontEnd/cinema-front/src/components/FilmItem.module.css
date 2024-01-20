@@ -1,11 +1,11 @@
-.event {
+.film {
   max-width: 50rem;
   margin: 2rem auto;
   text-align: center;
 }
 
-.event img {
-  width: 30rem;
+.film img {
+  width: 25rem;
   border-radius: 4px;
 }
 

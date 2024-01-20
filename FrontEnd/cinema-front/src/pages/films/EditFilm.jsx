@@ -1,3 +1,8 @@
+import { useRouteLoaderData } from "react-router-dom";
+import FilmForm from "../../components/FilmForm";
+
 export default function EditFilm() {
-  return <h1>Edit Film Page</h1>;
+  const film = useRouteLoaderData("film-detail");
+
+  return <FilmForm film={film} method="put" />;
 }

@@ -8,12 +8,17 @@
 .form textarea {
   display: block;
   width: 100%;
+  font-size: medium;
 }
 
 .form input,
 .form textarea {
   font: inherit;
+  font-size: medium;
   padding: 0.25rem;
+  background-color: #242424;
+  border: 1px solid lightgray;
+  color: white;
 }
 
 .actions {

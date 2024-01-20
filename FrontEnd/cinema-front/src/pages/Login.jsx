@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
-import classes from '../components/EventForm.module.css';
+import classes from '../components/FilmForm.module.css';
 import { login } from '../services/auth';
 
 

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import classes from "./FilmsList.module.css";
 
 function FilmsList({ films }) {
@@ -7,7 +8,8 @@ function FilmsList({ films }) {
       <ul className={classes.list}>
         {films.map((film) => (
           <li key={film.id} className={classes.item}>
-            <a href="...">
+            {/* TO DO: check why it doesn't work without the backtick symbol */}
+            <Link to={`${film.id}`}> 
               <img src={film.posterUrl} alt={film.name} />
               <div className={classes.content}>
                 <h2>{film.name}</h2>
@@ -26,7 +28,7 @@ function FilmsList({ films }) {
                   ))}
                 </ul>
               </div>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
