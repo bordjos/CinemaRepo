@@ -1,6 +1,7 @@
 package cinema.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -13,6 +14,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -74,12 +76,10 @@ public class UserController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 
-		// KorisnikRegistracijaDTO nasleđuje KorisnikDTO, pa možemo koristiti konverter
-		// za njega
-		// ostaje da dodatno konvertujemo polje kojeg u njemu nema - password
+		// UserRegistrationDTO extends UserDTO, so we can use the Converter for it, we
+		// need to convert the password field because it's missing
 		User user = toUser.convert(dto);
 
-		// dodatak za zadatak 1
 		String encodedPassword = passwordEncoder.encode(dto.getPassword());
 		user.setPassword(encodedPassword);
 
@@ -158,5 +158,10 @@ public class UserController {
 		} catch (UsernameNotFoundException e) {
 			return ResponseEntity.notFound().build();
 		}
+	}
+
+	@ExceptionHandler(value = DataIntegrityViolationException.class)
+	public ResponseEntity<Void> handle() {
+		return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
 	}
 }

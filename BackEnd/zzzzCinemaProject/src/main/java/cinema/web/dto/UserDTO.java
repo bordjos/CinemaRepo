@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
 
 public class UserDTO {
 
-	@Positive(message = "Id must be a positive number.")
+	@Positive(message = "ID must be a positive number!")
 	private Long id;
 
 	// @NotBlank

@@ -16,6 +16,9 @@ import Login from "./pages/Login.jsx";
 import FilmsRoot from "./pages/films/FilmsRoot.jsx";
 import ErrorPage from "./pages/Error.jsx";
 import { action as manageFilmAction } from "./components/FilmForm.jsx";
+import Authentication, {
+  action as authAction,
+} from "./pages/Authentication.jsx";
 
 // the paths are set as relative
 const router = createBrowserRouter([
@@ -53,7 +56,8 @@ const router = createBrowserRouter([
       { path: "price-list", element: <PriceList /> },
       { path: "about-us", element: <AboutUs /> },
       { path: "contact", element: <Contact /> },
-      { path: "login", element: <Login /> },
+      { path: "auth", element: <Authentication />, action: authAction },
+      // { path: "login", element: <Login /> },
     ],
   },
 ]);

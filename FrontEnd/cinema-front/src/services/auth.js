@@ -20,7 +20,6 @@ export const login = async (username, password) => {
     window.localStorage.setItem("role", decoded.role.authority);
     window.location.replace("http://localhost:5173");
   } catch (e) {
-    console.log(e);
     alert("Login FAILED");
     window.location.replace("http://localhost:5173");
   }

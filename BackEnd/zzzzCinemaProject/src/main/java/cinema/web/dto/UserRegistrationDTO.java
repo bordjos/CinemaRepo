@@ -4,10 +4,10 @@ import javax.validation.constraints.NotBlank;
 
 public class UserRegistrationDTO extends UserDTO {
 
-	@NotBlank(message = "Password is not provided.")
+	@NotBlank(message = "Password is not provided!")
 	private String password;
 
-	@NotBlank(message = "Repeated password is not provided.")
+	@NotBlank(message = "Repeated password is not provided!")
 	private String repeatedPassword;
 
 	public String getPassword() {

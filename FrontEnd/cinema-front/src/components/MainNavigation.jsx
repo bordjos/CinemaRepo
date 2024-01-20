@@ -64,15 +64,18 @@ function MainNavigation() {
           </li>
           {window.localStorage.getItem("jwt") ? (
             <li>
-              <NavLink
-                onClick={logout}
-              >
-                Log Out
-              </NavLink>
+              <NavLink onClick={logout}>Log Out</NavLink>
             </li>
           ) : (
             <li>
-              <NavLink to="/login">Log In</NavLink>
+              <NavLink
+                to="/auth?mode=login"
+                className={({ isActive }) =>
+                  isActive ? classes.active : undefined
+                }
+              >
+                Log In
+              </NavLink>
             </li>
           )}
         </ul>
