@@ -1,10 +1,12 @@
 .header {
   max-width: 100%;
   margin: auto;
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   justify-content: space-between;
-  background-color: #242424;
+  /* background-color: #10242b; */
+  background-color: var(--color-blue-900);
+  align-items: center;
 }
 
 .list {
@@ -13,12 +15,19 @@
 }
 
 .list a {
+  padding: 1rem;
   text-decoration: none;
   font-size: 20px;
-  color: var(--color-primary-400);
+  color: var(--color-primary-500);
 }
 
 .list a:hover,
 .list a.active {
-  color: var(--color-primary-800);
+  color: var(--color-primary-900);
+}
+
+.logo {
+ width: 100px;
+ padding: 0;
+ border-radius: 20px;
 }

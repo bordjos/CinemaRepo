@@ -1,3 +1,4 @@
+
 /* includes the elemenents padding and border to it's total width and height */
 * {
   box-sizing: border-box;
@@ -13,6 +14,8 @@
   color: rgba(255, 255, 255, 0.87);
   /* background-color: #242424; */
   background-color: #313131;
+  background-image: url(./assets/movie-background-collage.jpg);
+  background-size: cover;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -20,7 +23,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --color-gray-100: #f4f3f1;
+  /* --color-gray-100: #f4f3f1;
   --color-gray-200: #dddbd8;
   --color-gray-300: #ccc9c6;
   --color-gray-400: #aeaba7;
@@ -28,7 +31,17 @@
   --color-gray-600: #656360;
   --color-gray-700: #4b4a47;
   --color-gray-800: #31302e;
-  --color-gray-900: #1f1d1b;
+  --color-gray-900: #1f1d1b; */
+
+  --color-blue-100: #eaf0f4; 
+  --color-blue-200: #c9d8e4; 
+  --color-blue-300: #9cb4cd; 
+  --color-blue-400: #7598b9; 
+  --color-blue-500: #4c7ba4; 
+  --color-blue-600: #2f5e8b; 
+  --color-blue-700: #1b4a76; 
+  --color-blue-800: #09345f; 
+  --color-blue-900: #002040; 
 
   --color-primary-100: #fcf3e1;
   --color-primary-200: #fceccd;

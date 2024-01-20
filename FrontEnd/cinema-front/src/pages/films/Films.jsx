@@ -3,6 +3,8 @@ import { useLoaderData, json } from "react-router-dom";
 import FilmsList from "../../components/FilmsList";
 import CinemaAxios from "../../apis/CinemaAxios";
 
+//TO DO: implement adding movies to the state in reverse order (shallow copy?)
+//TO DO: implement search
 export default function Films() {
   const data = useLoaderData(); //will store the return value of the loader function
 
@@ -10,13 +12,9 @@ export default function Films() {
     return <p>{data.message}</p>;
   }
 
-  console.log(data);
-
   return <FilmsList films={data} />;
 }
 
-//TO DO: implement adding movies to the state in reverse order (shallow copy?)
-//TO DO: implement search
 export async function loader() {
   const response = await CinemaAxios.get("/films")
     .then((res) => {

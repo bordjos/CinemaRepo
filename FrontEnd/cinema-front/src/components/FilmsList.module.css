@@ -13,18 +13,18 @@
   text-decoration: none;
   color: inherit;
   display: flex;
-  background-color: var(--color-gray-900);
+  background-color: var(--color-blue-700);
   border-radius: 4px;
   overflow: hidden;
+  opacity: 0.8;
 }
 
 .item a:hover {
   transform: scale(1.02);
-  background-color: var(--color-gray-700);
+  background-color: var(--color-blue-500);
 }
 
 .item img {
-  /* width: 33%; */
   width: 25%;
   object-fit: cover;
 }
@@ -32,6 +32,7 @@
 .content {
   padding: 1rem;
   width: 66%;
+  opacity: 1;
 }
 
 .content p {
