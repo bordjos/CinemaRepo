@@ -7,11 +7,13 @@
   /* background-color: #10242b; */
   background-color: var(--color-blue-900);
   align-items: center;
+  border-bottom: 4px solid black;
 }
 
 .list {
   display: flex;
   gap: 5rem;
+  align-items: center;
 }
 
 .list a {
@@ -27,7 +29,21 @@
 }
 
 .logo {
- width: 100px;
- padding: 0;
- border-radius: 20px;
+  width: 100px;
+  padding: 0;
+  border-radius: 20px;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  text-decoration: none;
+  color: var(--color-primary-500);
+  cursor: pointer;
+  padding: 1rem;
+  font-size: 20px;
+}
+
+button:hover {
+  color: var(--color-primary-900);
 }

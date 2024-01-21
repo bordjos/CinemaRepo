@@ -55,7 +55,7 @@ export async function action({ request }) {
     window.localStorage.setItem("role", decoded.role.authority);
     // window.location.replace("http://localhost:5173");
     //this throws an error?
-    window.location.replace("/");
+    return redirect("/");
   } catch (e) {
     console.log("ERROR: " + e.response.status);
 
@@ -68,6 +68,8 @@ export async function action({ request }) {
     }
   }
 
-  //when using redirect the jwt state change is not picked up but it doesn't throw an Error?
-  // return redirect("/");
+  // return null; //must return null so the Error Component doesn't get triggered
+
+  //when using redirect the jwt state change is not picked up (implement ContextProvider maybe?)
+  return redirect("/");
 }

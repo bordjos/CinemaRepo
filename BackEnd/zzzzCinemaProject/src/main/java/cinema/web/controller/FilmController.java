@@ -9,6 +9,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,6 +42,7 @@ public class FilmController {
 	@Autowired
 	private FilmToFilmDTO toFilmDTO;
 
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<FilmDTO> create(@Valid @RequestBody FilmDTO filmDTO) {
 
@@ -49,6 +51,7 @@ public class FilmController {
 		return new ResponseEntity<FilmDTO>(toFilmDTO.convert(filmService.save(film)), HttpStatus.CREATED);
 	}
 
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<FilmDTO> update(@PathVariable Long id, @Valid @RequestBody FilmDTO filmDTO) {
 
@@ -63,6 +66,7 @@ public class FilmController {
 		return new ResponseEntity<FilmDTO>(toFilmDTO.convert(filmService.save(film)), HttpStatus.OK);
 	}
 
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<Void> delete(@PathVariable Long id) {
 

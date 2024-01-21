@@ -119,11 +119,12 @@ public class UserController {
 	}
 
 	@PreAuthorize("hasRole('ROLE_USER')")
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT, params = "promenaLozinke")
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT, params = "changePassword")
 	public ResponseEntity<Void> changePassword(@PathVariable Long id, @RequestBody UserChangePasswordDTO dto) {
-		// ova metoda se "okida" kada se primi PUT /korisnici?promenaLozinke
-		// pogresno bi bilo mapirati na npr. PUT /korisnici/lozinke, posto "lozinka"
-		// nije punopravan REST resurs!
+
+		// this method is triggered whenever we receive a PUT /users/?changePassword
+		// it would be wrong to map it to PUT /users/passwords, because "password"
+		// is not a fully-fledged REST resource
 
 		if (!dto.getPassword().equals(dto.getRepeatedPassword())) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

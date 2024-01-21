@@ -1,11 +1,12 @@
-import { NavLink } from "react-router-dom";
+import { Form, NavLink, useRouteLoaderData } from "react-router-dom";
 
-import { logout } from "../services/auth";
 import classes from "./MainNavigation.module.css";
 import logo from "../assets/cinema-logo.jpg";
 
 // using NavLink here instead of Link so we can get an is active props
 function MainNavigation() {
+  const authObject = useRouteLoaderData("root");
+
   return (
     <header className={classes.header}>
       <img className={classes.logo} src={logo} alt="Cinema Logo Image" />
@@ -62,9 +63,11 @@ function MainNavigation() {
               Contact
             </NavLink>
           </li>
-          {window.localStorage.getItem("jwt") ? (
+          {authObject.jwt ? (
             <li>
-              <NavLink onClick={logout}>Log Out</NavLink>
+              <Form action="/logout" method="POST" >
+                <button style={{ marginRight: "6rem" }}>Log Out</button>
+              </Form>
             </li>
           ) : (
             <li>
@@ -73,11 +76,16 @@ function MainNavigation() {
                 className={({ isActive }) =>
                   isActive ? classes.active : undefined
                 }
+                style={{ marginRight: "6rem" }}
               >
                 Log In
               </NavLink>
             </li>
           )}
+
+          {/* <li>
+            <NavLink onClick={logout}>Log Out</NavLink>
+          </li> */}
         </ul>
       </nav>
     </header>

@@ -4,6 +4,7 @@ import CinemaAxios from "../../apis/CinemaAxios";
 
 export default function FilmDetail() {
   const film = useRouteLoaderData("film-detail"); //we need to pass the id defined on the Route Component
+  
 
   // console.log("FILM" + film);
   return <FilmItem film={film} />;

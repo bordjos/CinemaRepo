@@ -12,13 +12,14 @@ import PriceList from "./pages/PriceList.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
 import Contact from "./pages/Contact.jsx";
 import Root from "./pages/Root.jsx";
-import Login from "./pages/Login.jsx";
 import FilmsRoot from "./pages/films/FilmsRoot.jsx";
 import ErrorPage from "./pages/Error.jsx";
 import { action as manageFilmAction } from "./components/FilmForm.jsx";
 import Authentication, {
   action as authAction,
 } from "./pages/Authentication.jsx";
+import { action as logoutAction } from "./util/logout.js";
+import { checkAuthLoader, loader as tokenLoader } from "./util/auth.js";
 
 // the paths are set as relative
 const router = createBrowserRouter([
@@ -26,6 +27,8 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage />, //will be triggered if there was an error generated in any route related code (including loaders)
+    id: "root",
+    loader: tokenLoader, // added so the UI updates after we Log In or Create an Account
     children: [
       { index: true, element: <Home /> },
       {
@@ -47,17 +50,17 @@ const router = createBrowserRouter([
                 element: <FilmDetail />,
                 action: deleteFilmAction,
               },
-              { path: "edit", element: <EditFilm />, action: manageFilmAction },
+              { path: "edit", element: <EditFilm />, action: manageFilmAction, loader: checkAuthLoader },
             ],
           },
-          { path: "new", element: <NewFilm />, action: manageFilmAction },
+          { path: "new", element: <NewFilm />, action: manageFilmAction, loader: checkAuthLoader  },
         ],
       },
       { path: "price-list", element: <PriceList /> },
       { path: "about-us", element: <AboutUs /> },
       { path: "contact", element: <Contact /> },
       { path: "auth", element: <Authentication />, action: authAction },
-      // { path: "login", element: <Login /> },
+      { path: "logout", action: logoutAction },
     ],
   },
 ]);
