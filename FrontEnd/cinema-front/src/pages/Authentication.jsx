@@ -44,13 +44,20 @@ export async function action({ request }) {
 
   try {
     const response = await CinemaAxios.post(url, authData);
-    console.log("RESPONSE: " + response);
+    // console.log("RESPONSE: " + response);
     console.log("NOT DECODED: " + response.data);
 
-    window.localStorage.setItem("jwt", response.data);
+    localStorage.setItem("jwt", response.data);
+
+    // automatic Log Out logic
+    const expiration = new Date();
+    console.log(expiration);
+    expiration.setHours(expiration.getHours() + 1);
+    console.log(String(expiration));
+    localStorage.setItem("expiration", expiration.toISOString());
 
     const decoded = jwtDecode(response.data);
-    console.log("DECODED:" + decoded);
+    console.log(decoded);
 
     window.localStorage.setItem("role", decoded.role.authority);
     // window.location.replace("http://localhost:5173");

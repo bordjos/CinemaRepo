@@ -9,7 +9,9 @@ function MainNavigation() {
 
   return (
     <header className={classes.header}>
-      <img className={classes.logo} src={logo} alt="Cinema Logo Image" />
+      <NavLink to="/">
+        <img className={classes.logo} src={logo} alt="Cinema Logo Image" />
+      </NavLink>
       <nav>
         <ul className={classes.list}>
           <li>
@@ -63,9 +65,9 @@ function MainNavigation() {
               Contact
             </NavLink>
           </li>
-          {authObject.jwt ? (
+          {authObject && authObject.jwt ? (
             <li>
-              <Form action="/logout" method="POST" >
+              <Form action="/logout" method="POST">
                 <button style={{ marginRight: "6rem" }}>Log Out</button>
               </Form>
             </li>

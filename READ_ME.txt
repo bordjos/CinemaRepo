@@ -2,9 +2,10 @@ Greeting to anyone reading this.
 
 This is my Fullstack Cinema Web App that's being developed using Java Spring Boot and ReactJS. 
 
-My main goal is to simulate a cinema Web App that supports both ADMIN and regular USER actions.
+My main goal is to simulate a Cinema Web App that supports both ADMIN and regular USER actions.
 - USER actions: making an account, logging in/out, changing the password, browsing available films, buying tickets etc.
 - ADMIN actions: adding new films, projections, deleting them, setting and changing the prices for tickets and so on.
+
 The last step is to make the Web App responsive.
 
 Classes used for modelling on the Back End:
