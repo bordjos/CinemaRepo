@@ -58,12 +58,14 @@ INSERT INTO projection(id, date_time, price, film_id, auditorium_id, projection_
 INSERT INTO projection(id, date_time, price, film_id, auditorium_id, projection_type_id) VALUES (2, "2023-01-01 18:30", 700.0, 2, 3, 2);
 INSERT INTO projection(id, date_time, price, film_id, auditorium_id, projection_type_id) VALUES (3, "2023-01-02 15:00", 700.0, 1, 2, 1);
 INSERT INTO projection(id, date_time, price, film_id, auditorium_id, projection_type_id) VALUES (4, "2023-01-02 19:30", 700.0, 2, 3, 2);
-INSERT INTO projection(id, date_time, price, film_id, auditorium_id, projection_type_id) VALUES (5, "2023-01-03 14:00", 700.0, 3, 1, 1);
-INSERT INTO projection(id, date_time, price, film_id, auditorium_id, projection_type_id) VALUES (6, "2023-01-03 20:15", 700.0, 4, 3, 2);
-INSERT INTO projection(id, date_time, price, film_id, auditorium_id, projection_type_id) VALUES (7, "2023-01-04 18:00", 700.0, 3, 2, 1);
-INSERT INTO projection(id, date_time, price, film_id, auditorium_id, projection_type_id) VALUES (8, "2023-01-04 16:45", 700.0, 4, 3, 2);
-INSERT INTO projection(id, date_time, price, film_id, auditorium_id, projection_type_id) VALUES (9, "2023-01-05 18:00", 1200.0, 5, 4, 3);
-INSERT INTO projection(id, date_time, price, film_id, auditorium_id, projection_type_id) VALUES (10, "2023-01-05 22:30", 1000.0, 5, 4, 3);
+INSERT INTO projection(id, date_time, price, film_id, auditorium_id, projection_type_id) VALUES (5, "2023-01-03 12:00", 700.0, 1, 2, 1);
+INSERT INTO projection(id, date_time, price, film_id, auditorium_id, projection_type_id) VALUES (6, "2023-01-03 15:00", 700.0, 1, 2, 1);
+INSERT INTO projection(id, date_time, price, film_id, auditorium_id, projection_type_id) VALUES (7, "2023-01-03 14:00", 700.0, 3, 1, 1);
+INSERT INTO projection(id, date_time, price, film_id, auditorium_id, projection_type_id) VALUES (8, "2023-01-03 20:15", 700.0, 4, 3, 2);
+INSERT INTO projection(id, date_time, price, film_id, auditorium_id, projection_type_id) VALUES (9, "2023-01-04 18:00", 700.0, 3, 2, 1);
+INSERT INTO projection(id, date_time, price, film_id, auditorium_id, projection_type_id) VALUES (10, "2023-01-04 16:45", 700.0, 4, 3, 2);
+INSERT INTO projection(id, date_time, price, film_id, auditorium_id, projection_type_id) VALUES (11, "2023-01-05 18:00", 1200.0, 5, 4, 3);
+INSERT INTO projection(id, date_time, price, film_id, auditorium_id, projection_type_id) VALUES (12, "2023-01-05 22:30", 1000.0, 5, 4, 3);
 
 
 --SEATS

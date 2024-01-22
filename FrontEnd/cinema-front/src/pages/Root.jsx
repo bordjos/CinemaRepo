@@ -2,6 +2,7 @@ import { Outlet, useLoaderData, useSubmit } from "react-router-dom";
 import MainNavigation from "../components/MainNavigation";
 import { useEffect } from "react";
 import { getTokenDuration } from "../util/auth";
+import Footer from "../components/Footer";
 
 export default function Root() {
   // const navigation = useNavigation();
@@ -41,6 +42,7 @@ export default function Root() {
         {/* defines where the contect of the child routes in rendered */}
         <Outlet />
       </main>
+      <Footer />
     </>
   );
 }

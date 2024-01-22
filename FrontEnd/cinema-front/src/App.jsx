@@ -20,6 +20,9 @@ import Authentication, {
 } from "./pages/Authentication.jsx";
 import { action as logoutAction } from "./util/logout.js";
 import { checkAuthLoader, loader as tokenLoader } from "./util/auth.js";
+import ProjectionDetail, {
+  loader as projectionDetailLoader,
+} from "./pages/projections/ProjectionDetail.jsx";
 
 // the paths are set as relative
 const router = createBrowserRouter([
@@ -43,17 +46,32 @@ const router = createBrowserRouter([
           {
             path: ":id",
             id: "film-detail", //we add the id prop here so the loader will be available here and we need to use the useRouteLoaderData() hook instead
-            loader: filmDetailLoader, //added nested routes so both pages can you the loader
+            loader: filmDetailLoader, //added nested routes so both pages can use the loader
             children: [
               {
                 index: true,
                 element: <FilmDetail />,
                 action: deleteFilmAction,
               },
-              { path: "edit", element: <EditFilm />, action: manageFilmAction, loader: checkAuthLoader },
+              {
+                path: "edit",
+                element: <EditFilm />,
+                action: manageFilmAction,
+                loader: checkAuthLoader,
+              },
+              {
+                path: ":projectionId",
+                element: <ProjectionDetail />,
+                loader: projectionDetailLoader,
+              },
             ],
           },
-          { path: "new", element: <NewFilm />, action: manageFilmAction, loader: checkAuthLoader  },
+          {
+            path: "new",
+            element: <NewFilm />,
+            action: manageFilmAction,
+            loader: checkAuthLoader,
+          },
         ],
       },
       { path: "price-list", element: <PriceList /> },

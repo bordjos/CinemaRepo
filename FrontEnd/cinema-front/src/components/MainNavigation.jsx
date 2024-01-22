@@ -1,7 +1,7 @@
 import { Form, NavLink, useRouteLoaderData } from "react-router-dom";
 
 import classes from "./MainNavigation.module.css";
-import logo from "../assets/cinema-logo.jpg";
+import logo from "../assets/cinemax-logo.png";
 
 // using NavLink here instead of Link so we can get an is active props
 function MainNavigation() {

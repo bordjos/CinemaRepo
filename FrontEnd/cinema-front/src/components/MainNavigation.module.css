@@ -26,6 +26,8 @@
 .list a:hover,
 .list a.active {
   color: var(--color-primary-900);
+  border-bottom: 6px solid var(--color-primary-900);
+  border-radius: 6px;
 }
 
 .logo {
@@ -46,4 +48,6 @@ button {
 
 button:hover {
   color: var(--color-primary-900);
+  border-bottom: 6px solid var(--color-primary-900);
+  border-radius: 6px; 
 }
