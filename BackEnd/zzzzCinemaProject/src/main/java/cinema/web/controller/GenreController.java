@@ -89,7 +89,7 @@ public class GenreController {
         }
     }
 	
-	@GetMapping("/{id}/filmovi")
+	@GetMapping("/{id}/films")
     public ResponseEntity<List<FilmDTO>> getByGenreId(@PathVariable Long id){
         List<Film> films = filmService.findByGenreId(id);
 

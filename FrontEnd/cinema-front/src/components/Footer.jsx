@@ -21,7 +21,7 @@ export default function Footer() {
         </div>
         <div>
           <CiMail style={{ fontSize: "24px" }} />
-          <span>arenacineplex@gmail.com</span>
+          <span>cinemaxbalkan@gmail.com</span>
         </div>
       </div>
       <div className={classes.newsletterContainer}>

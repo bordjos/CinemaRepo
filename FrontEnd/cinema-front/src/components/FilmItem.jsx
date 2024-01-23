@@ -42,7 +42,7 @@ export default function FilmItem({ film }) {
               </span>
             ))}
           </p>
-          <p>Length: {film.distributor}</p>
+          <p>Length: {film.length} min</p>
           <p>Country of origin: {film.country}</p>
           <p>Release year: {film.year}</p>
         </div>

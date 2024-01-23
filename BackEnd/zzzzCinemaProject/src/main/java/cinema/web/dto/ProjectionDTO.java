@@ -20,6 +20,8 @@ public class ProjectionDTO {
 	@Positive(message = "ID must be a positive number!")
 	@NotNull
 	private Long filmId;
+	
+	private String filmName;
 
 	@Positive(message = "ID must be a positive number!")
 	@NotNull
@@ -78,4 +80,13 @@ public class ProjectionDTO {
 		this.projectionTypeId = projectionTypeId;
 	}
 
+	public String getFilmName() {
+		return filmName;
+	}
+
+	public void setFilmName(String filmName) {
+		this.filmName = filmName;
+	}
+
+	
 }

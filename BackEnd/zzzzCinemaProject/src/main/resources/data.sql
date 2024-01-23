@@ -156,15 +156,15 @@ INSERT INTO seat(id, number, auditorium_id) VALUES (80, 20, 4);
 
 
 --TICKETS
-INSERT INTO ticket(id, projection_id, seat_id, sale_date_time) VALUES (1, 1, 1, "2022-12-22 15:12");
-INSERT INTO ticket(id, projection_id, seat_id, sale_date_time) VALUES (2, 1, 2, "2022-12-23 04:10");
-INSERT INTO ticket(id, projection_id, seat_id, sale_date_time) VALUES (3, 1, 1, "2022-12-24 23:34");
-INSERT INTO ticket(id, projection_id, seat_id, sale_date_time) VALUES (4, 1, 5, "2022-12-25 12:36");
-INSERT INTO ticket(id, projection_id, seat_id, sale_date_time) VALUES (5, 1, 6, "2022-12-25 13:00");
-INSERT INTO ticket(id, projection_id, seat_id, sale_date_time) VALUES (6, 1, 1, "2022-12-26 14:00");
-INSERT INTO ticket(id, projection_id, seat_id, sale_date_time) VALUES (7, 1, 8, "2022-12-26 09:00");
-INSERT INTO ticket(id, projection_id, seat_id, sale_date_time) VALUES (8, 1, 10, "2022-12-26 22:12");
-INSERT INTO ticket(id, projection_id, seat_id, sale_date_time) VALUES (9, 1, 12, "2022-12-27 19:54");
-INSERT INTO ticket(id, projection_id, seat_id, sale_date_time) VALUES (10, 1, 13, "2022-12-27 18:00");
-INSERT INTO ticket(id, projection_id, seat_id, sale_date_time) VALUES (11, 1, 15, "2022-12-28 04:47");
-INSERT INTO ticket(id, projection_id, seat_id, sale_date_time) VALUES (12, 1, 19, "2022-12-29 20:25");
+--INSERT INTO ticket(id, projection_id, seat_id, sale_date_time) VALUES (1, 1, 1, "2022-12-22 15:12");
+--INSERT INTO ticket(id, projection_id, seat_id, sale_date_time) VALUES (2, 1, 2, "2022-12-23 04:10");
+--INSERT INTO ticket(id, projection_id, seat_id, sale_date_time) VALUES (3, 1, 1, "2022-12-24 23:34");
+--INSERT INTO ticket(id, projection_id, seat_id, sale_date_time) VALUES (4, 1, 5, "2022-12-25 12:36");
+--INSERT INTO ticket(id, projection_id, seat_id, sale_date_time) VALUES (5, 1, 6, "2022-12-25 13:00");
+--INSERT INTO ticket(id, projection_id, seat_id, sale_date_time) VALUES (6, 1, 1, "2022-12-26 14:00");
+--INSERT INTO ticket(id, projection_id, seat_id, sale_date_time) VALUES (7, 1, 8, "2022-12-26 09:00");
+--INSERT INTO ticket(id, projection_id, seat_id, sale_date_time) VALUES (8, 1, 10, "2022-12-26 22:12");
+--INSERT INTO ticket(id, projection_id, seat_id, sale_date_time) VALUES (9, 1, 12, "2022-12-27 19:54");
+--INSERT INTO ticket(id, projection_id, seat_id, sale_date_time) VALUES (10, 1, 13, "2022-12-27 18:00");
+--INSERT INTO ticket(id, projection_id, seat_id, sale_date_time) VALUES (11, 1, 15, "2022-12-28 04:47");
+--INSERT INTO ticket(id, projection_id, seat_id, sale_date_time) VALUES (12, 1, 19, "2022-12-29 20:25");

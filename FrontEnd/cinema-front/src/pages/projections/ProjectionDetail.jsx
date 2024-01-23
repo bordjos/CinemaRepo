@@ -1,15 +1,13 @@
 import { useLoaderData } from "react-router-dom";
+import ProjectionItem from "../../components/projections/ProjectionItem";
 import CinemaAxios from "../../apis/CinemaAxios";
 
 export default function ProjectionDetail() {
-  const data = useLoaderData();
-//   console.log(data);
+  const projection = useLoaderData(); //we need to pass the id defined on the Route Component
+  
 
-  return <>
-  <h1>Projection Details Page</h1>
-    <p>{data.dateTime}</p>
-    <p>{data.price}</p>
-  </>;
+  // console.log("FILM" + film);
+  return <ProjectionItem projection={projection} />;
 }
 
 export async function loader({ request, params }) {
@@ -28,10 +26,7 @@ export async function loader({ request, params }) {
       );
     });
 
-    console.log(response);
+  console.log(response);
 
-    return response;
+  return response;
 }
-
-
-  
