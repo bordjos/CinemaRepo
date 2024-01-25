@@ -5,7 +5,8 @@
   display: flex;
   justify-content: space-between;
   /* background-color: #10242b; */
-  background-color: var(--color-blue-900);
+  /* background-color: var(--color-blue-900); */
+  background: linear-gradient(to left, var(--color-blue-700), var(--color-blue-900));
   align-items: center;
   border-bottom: 4px solid black;
 }

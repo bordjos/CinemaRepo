@@ -6,6 +6,7 @@ import classes from "./ProjectionItem.module.css";
 export default function ProjectionItem({ projection }) {
   const [seats, setSeats] = useState([]);
   const [selectedSeats, setSelectedSeats] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     const auditoriumId = projection.auditoriumId;
@@ -29,11 +30,33 @@ export default function ProjectionItem({ projection }) {
         ? prevSelectedSeats.filter((id) => id !== seatId)
         : [...prevSelectedSeats, seatId]
     );
+
+    setTotalPrice((prevPrice) =>
+      isSelected
+        ? parseInt(prevPrice) - parseInt(projection.price)
+        : parseInt(prevPrice) + parseInt(projection.price)
+    );
+
+    console.log(selectedSeats);
   };
 
   const checkout = () => {
+    const tickets = selectedSeats.map((seatId) => ({
+      projectionId: projection.id,
+      seatId: seatId,
+    }));
 
-  }
+    CinemaAxios.post("/tickets", tickets)
+      .then((res) => {
+        console.log("SUCCESS!!!");
+        location.reload();
+      })
+      .catch((err) => {
+        console.log("ERROR!");
+      });
+
+    console.log(tickets);
+  };
 
   return (
     <div className={classes.container}>
@@ -48,40 +71,31 @@ export default function ProjectionItem({ projection }) {
           <button
             key={seat.id}
             onClick={() => handleSeatClick(seat.id)}
-            className={
+            className={` ${
               selectedSeats.includes(seat.id)
                 ? classes.selected
                 : classes.notSelected
-            }
+            } ${
+              projection.reservedSeatIds.includes(seat.id)
+                ? classes.disabled
+                : ""
+            }`}
+            disabled={projection.reservedSeatIds.includes(seat.id)}
           >
             {seat.number}
           </button>
         ))}
       </div>
+      <p>
+        <span className={classes.redSquare}></span>Seats marked as red are
+        reserved!
+      </p>
+      <p style={{color: "green"}}>Total price: {totalPrice} RSD</p>
       <div>
-        <button onClick={checkout}>Checkout</button>
+        <button className={classes.checkoutButton} onClick={checkout}>
+          Checkout
+        </button>
       </div>
     </div>
   );
 }
-
-// export async function loader({ request, params }) {
-//   const id = params.projectionId; // similar to useParams()
-//   console.log("projectionId: " + id);
-
-//   const response = await CinemaAxios.get("/projections/" + id)
-//     .then((res) => {
-//       console.log(res.data);
-//       return res.data;
-//     })
-//     .catch((error) => {
-//       throw json(
-//         { message: "Could not fetch the projections for the selected film." },
-//         { status: 500 }
-//       );
-//     });
-
-//   console.log(response);
-
-//   return response;
-// }

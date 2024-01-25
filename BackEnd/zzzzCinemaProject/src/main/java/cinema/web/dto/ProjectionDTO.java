@@ -1,5 +1,7 @@
 package cinema.web.dto;
 
+import java.util.List;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -20,7 +22,7 @@ public class ProjectionDTO {
 	@Positive(message = "ID must be a positive number!")
 	@NotNull
 	private Long filmId;
-	
+
 	private String filmName;
 
 	@Positive(message = "ID must be a positive number!")
@@ -30,7 +32,9 @@ public class ProjectionDTO {
 	@Positive(message = "ID must be a positive number!")
 	private Long projectionTypeId;
 
-	// tickets ?
+//	List<Long> reservedTicketIds;
+
+	List<Long> reservedSeatIds;
 
 	public Long getId() {
 		return id;
@@ -88,5 +92,20 @@ public class ProjectionDTO {
 		this.filmName = filmName;
 	}
 
-	
+	public List<Long> getReservedSeatIds() {
+		return reservedSeatIds;
+	}
+
+	public void setReservedSeatIds(List<Long> reservedSeatIds) {
+		this.reservedSeatIds = reservedSeatIds;
+	}
+
+//	public List<Long> getReservedTicketIds() {
+//		return reservedTicketIds;
+//	}
+//
+//	public void setReservedTicketIds(List<Long> reservedTicketIds) {
+//		this.reservedTicketIds = reservedTicketIds;
+//	}
+
 }

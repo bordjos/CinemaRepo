@@ -21,7 +21,9 @@ export default function FilmItem({ film }) {
         <h1>{film.name}</h1>
         {/* <time>{film.date}</time> */}
         <p>{film.about}</p>
-        <div>Ok</div>
+        <NavLink>
+          <div>Add a projection</div>
+        </NavLink>
         {authObject && authObject.role === "ADMIN" && (
           <menu className={classes.actions}>
             <Link to="edit">Edit</Link>
