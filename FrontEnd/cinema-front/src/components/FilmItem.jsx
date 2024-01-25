@@ -14,6 +14,10 @@ export default function FilmItem({ film }) {
     }
   }
 
+  const isAdmin = () => {
+    return authObject && authObject.role === "ADMIN";
+  }
+
   return (
     <>
       <article className={classes.film}>
@@ -21,12 +25,10 @@ export default function FilmItem({ film }) {
         <h1>{film.name}</h1>
         {/* <time>{film.date}</time> */}
         <p>{film.about}</p>
-        <NavLink>
-          <div>Add a projection</div>
-        </NavLink>
-        {authObject && authObject.role === "ADMIN" && (
+        {isAdmin() && (
           <menu className={classes.actions}>
             <Link to="edit">Edit</Link>
+            <Link to="new-projection">Add a projection</Link>
             <button onClick={startDeleteHandler}>Delete</button>
           </menu>
         )}

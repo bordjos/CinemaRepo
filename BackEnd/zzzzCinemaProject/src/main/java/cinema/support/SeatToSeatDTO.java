@@ -19,9 +19,9 @@ public class SeatToSeatDTO implements Converter<Seat, SeatDTO> {
 		dto.setId(seat.getId());
 		dto.setNumber(seat.getNumber());
 		dto.setAuditoriumId(seat.getAuditorium().getId());
-		if (seat.getTicket() != null) {
-			dto.setTicketId(seat.getTicket().getId());
-		}
+//		if (seat.getTicket() != null) {
+//			dto.setTicketId(seat.getTicket().getId());
+//		}
 
 		return dto;
 	}

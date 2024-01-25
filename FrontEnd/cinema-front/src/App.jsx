@@ -23,6 +23,7 @@ import { checkAuthLoader, loader as tokenLoader } from "./util/auth.js";
 import ProjectionDetail, {
   loader as projectionDetailLoader,
 } from "./pages/projections/ProjectionDetail.jsx";
+import NewProjection from "./pages/projections/NewProjection.jsx";
 
 // the paths are set as relative
 const router = createBrowserRouter([
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
                 element: <ProjectionDetail />,
                 loader: projectionDetailLoader,
               },
+              {
+                path: "new-projection",
+                element: <NewProjection />
+              }
             ],
           },
           {

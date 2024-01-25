@@ -32,10 +32,26 @@
   cursor: pointer;
 }
 
+.actions a {
+  background-color: var(--color-blue-900);
+  color: white;
+  border-radius: 1rem;
+}
+
+.actions a:hover,
+.actions button:hover  {
+  background-color: var(--color-primary-900);
+}
+
 .actions button {
   background-color: transparent;
   border: none;
   color: var(--color-primary-800);
+  border-radius: 1rem;
+}
+
+.actions button:hover {
+  color: white;
 }
 
 .containerDiv {
@@ -56,7 +72,7 @@
   background-color: var(--color-blue-800);
   width: 33%;
   border: 3px solid var(--color-primary-800);
-  border-radius: 20px;
+  border-radius: 1.6rem;
   height: 100%;
 }
 

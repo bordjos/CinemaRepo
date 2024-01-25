@@ -34,7 +34,7 @@ public class SeatDTOToSeat implements Converter<SeatDTO, Seat> {
 		if(seat != null) {
 			seat.setNumber(dto.getNumber());
 			seat.setAuditorium(auditoriumService.findOne(dto.getAuditoriumId()));
-			seat.setTicket(ticketService.findOne(dto.getTicketId()));
+//			seat.setTicket(ticketService.findOne(dto.getTicketId()));
 		}
 		
 		return seat;

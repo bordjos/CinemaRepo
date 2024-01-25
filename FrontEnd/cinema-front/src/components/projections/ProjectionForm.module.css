@@ -5,16 +5,7 @@
   border: 3px solid var(--color-primary-800);
   border-radius: 1.6rem;
   padding: 1rem;
-
 }
-
-/* margin: auto;
-  padding: 1rem;
-  background-color: var(--color-blue-800);
-  width: 33%;
-  border: 3px solid var(--color-primary-800);
-  border-radius: 20px;
-  height: 100%; */
 
 .form label,
 .form input,

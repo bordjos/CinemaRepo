@@ -1,10 +1,7 @@
-import { json, redirect } from "react-router-dom";
-
 import FilmForm from "../../components/FilmForm";
-import CinemaAxios from "../../apis/CinemaAxios";
 
 export default function NewFilm() {
-  return <FilmForm method="post"/>;
+  return <FilmForm method="post" />;
 }
 
 // export async function action({ request, params }) {

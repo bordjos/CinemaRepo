@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Ticket {
@@ -22,7 +21,7 @@ public class Ticket {
 	@JoinColumn(nullable = false)
 	private Projection projection;
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(nullable = false)
 	private Seat seat;
 
@@ -54,6 +53,9 @@ public class Ticket {
 
 	public void setSeat(Seat seat) {
 		this.seat = seat;
+		if (seat != null && !seat.getTickets().contains(this)) {
+			seat.getTickets().add(this);
+		}
 	}
 
 	public LocalDateTime getSaleDateTime() {

@@ -1,3 +1,5 @@
+import PriceInfo from "../components/PriceInfo";
+
 export default function PriceList() {
-  return <h1>Price List Page</h1>;
+  return <PriceInfo />
 }

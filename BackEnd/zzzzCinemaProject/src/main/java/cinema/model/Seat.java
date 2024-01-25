@@ -1,7 +1,10 @@
 package cinema.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Seat {
@@ -25,8 +28,11 @@ public class Seat {
 	@JoinColumn(nullable = false)
 	private Auditorium auditorium;
 
-	@OneToOne(mappedBy = "seat")
-	private Ticket ticket;
+//	@OneToOne(mappedBy = "seat")
+//	private Ticket ticket;
+
+	@OneToMany(mappedBy = "seat", cascade = CascadeType.ALL)
+	private List<Ticket> tickets = new ArrayList<>();
 
 	public Long getId() {
 		return id;
@@ -55,12 +61,20 @@ public class Seat {
 		}
 	}
 
-	public Ticket getTicket() {
-		return ticket;
+//	public Ticket getTicket() {
+//		return ticket;
+//	}
+//
+//	public void setTicket(Ticket ticket) {
+//		this.ticket = ticket;
+//	}
+
+	public List<Ticket> getTickets() {
+		return tickets;
 	}
 
-	public void setTicket(Ticket ticket) {
-		this.ticket = ticket;
+	public void setTickets(List<Ticket> tickets) {
+		this.tickets = tickets;
 	}
 
 	@Override
@@ -82,8 +96,7 @@ public class Seat {
 
 	@Override
 	public String toString() {
-		return "Seat [id=" + id + ", number=" + number + ", auditorium=" + auditorium.getName() + ", ticket="
-				+ ticket.getProjection() + "]";
+		return "Seat [id=" + id + ", number=" + number + ", auditorium=" + auditorium.getName() + "]";
 	}
 
 }
