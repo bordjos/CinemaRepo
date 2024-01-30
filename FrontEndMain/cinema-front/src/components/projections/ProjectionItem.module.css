@@ -1,0 +1,86 @@
+.container {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 30%;
+  background-color: var(--color-blue-800);
+  border-radius: 20px;
+  border: 3px solid var(--color-primary-800);
+  padding: 2rem;
+}
+
+/* margin: auto;
+  padding: 1rem;
+  background-color: var(--color-blue-800);
+  width: 33%;
+  border: 3px solid var(--color-primary-800);
+  border-radius: 20px;
+  height: 100%; */
+
+.container p {
+  align-self: flex-start;
+  margin: 0.9rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 10px;
+  width: 80%;
+}
+
+.grid button {
+  /* to prevent the buttons from collapsing when they are all selected */
+  min-height: 4rem;
+}
+
+.grid button:hover {
+  transform: scale(1.1);
+}
+
+.selected {
+  border: 4px solid var(--color-primary-900);
+  background-color: var(--color-blue-500);
+}
+
+.notSelected {
+  margin: 0;
+  /* padding: 10px; */
+  padding: 1rem;
+  border: 4px solid var(--color-primary-700);
+  background-color: var(--color-blue-300);
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.checkoutButton {
+  background-color: var(--color-blue-500);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.checkoutButton:hover,
+.checkoutButton:active {
+  background-color: var(--color-primary-600);
+  color: var(--color-blue-700);
+}
+
+.disabled {
+  border: 4px solid red;
+  background-color: gray;
+}
+
+.redSquare {
+  background-color: red;
+  margin-right: 0.7rem;
+  min-width: 1rem;
+  min-height: 1rem;
+  display: inline-block;
+}

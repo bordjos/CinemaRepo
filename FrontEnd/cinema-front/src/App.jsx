@@ -1,4 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { QueryClientProvider } from "@tanstack/react-query";
 
 import Home from "./pages/Home";
 import Films, { loader as filmsLoader } from "./pages/films/Films.jsx";
@@ -24,6 +25,7 @@ import ProjectionDetail, {
   loader as projectionDetailLoader,
 } from "./pages/projections/ProjectionDetail.jsx";
 import NewProjection from "./pages/projections/NewProjection.jsx";
+import { queryClient } from "./util/http.js";
 
 // the paths are set as relative
 const router = createBrowserRouter([
@@ -67,8 +69,8 @@ const router = createBrowserRouter([
               },
               {
                 path: "new-projection",
-                element: <NewProjection />
-              }
+                element: <NewProjection />,
+              },
             ],
           },
           {
@@ -89,7 +91,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router}></RouterProvider>;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router}></RouterProvider>
+    </QueryClientProvider>
+  );
 }
 
 export default App;

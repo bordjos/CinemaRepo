@@ -12,6 +12,7 @@ import cinema.model.Projection;
 import cinema.service.AuditoriumService;
 import cinema.service.FilmService;
 import cinema.service.ProjectionService;
+import cinema.service.ProjectionTypeService;
 import cinema.web.dto.ProjectionDTO;
 
 @Component
@@ -20,13 +21,15 @@ public class ProjectionDTOToProjection implements Converter<ProjectionDTO, Proje
 	private final ProjectionService projectionService;
 	private final FilmService filmService;
 	private final AuditoriumService auditoriumService;
+	private final ProjectionTypeService projectionTypeService;
 
 	public ProjectionDTOToProjection(ProjectionService projectionService, FilmService filmService,
-			AuditoriumService auditoriumService) {
+			AuditoriumService auditoriumService, ProjectionTypeService projectionTypeService) {
 		super();
 		this.projectionService = projectionService;
 		this.filmService = filmService;
 		this.auditoriumService = auditoriumService;
+		this.projectionTypeService = projectionTypeService;
 	}
 
 	@Override
@@ -38,12 +41,15 @@ public class ProjectionDTOToProjection implements Converter<ProjectionDTO, Proje
 			projection.setPrice(dto.getPrice());
 			projection.setFilm(filmService.findOne(dto.getFilmId()));
 			projection.setAuditorium(auditoriumService.findOne(dto.getAuditoriumId()));
-			
+			projection.setProjectionType(projectionTypeService.findOne(dto.getProjectionTypeId()));
+
 		}
+
+		System.out.println("PROJECITON: " + projection);
 
 		return projection;
 	}
-	
+
 	public List<Projection> convert(List<ProjectionDTO> projectionsDTO) {
 		return projectionsDTO.stream().map(this::convert).collect(Collectors.toList());
 	}

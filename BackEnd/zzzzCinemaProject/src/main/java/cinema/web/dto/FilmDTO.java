@@ -11,8 +11,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
-import cinema.model.Projection;
-
 public class FilmDTO {
 
 	@Positive(message = "ID must be a positive number!")

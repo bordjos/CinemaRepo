@@ -1,12 +1,24 @@
 import { useEffect, useState } from "react";
+import { useNavigate, useRouteLoaderData } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
 
 import CinemaAxios from "../../apis/CinemaAxios";
 import classes from "./ProjectionItem.module.css";
+import { queryClient } from "../../util/http";
 
 export default function ProjectionItem({ projection }) {
+  const navigate = useNavigate();
+  
   const [seats, setSeats] = useState([]);
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+
+
+  const authObject = useRouteLoaderData("root");
+
+  const isAdmin = () => {
+    return authObject && authObject.role === "ADMIN";
+  };
 
   useEffect(() => {
     const auditoriumId = projection.auditoriumId;
@@ -58,6 +70,23 @@ export default function ProjectionItem({ projection }) {
     console.log(tickets);
   };
 
+  const { mutate, isPending, isError, error } = useMutation({
+    // mutationKey: , //isn't needed here because we don't need to cache the query
+    mutationFn: () =>
+      CinemaAxios.delete("/projections/" + projection.id)
+        .then((res) => res.data)
+        .catch((err) => console.log(err)),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["events"] }); // tells React query that the data fetched by a specific query is stale and the immediate refetch should be triggered //queryKey should match the query key of that specific query (it is enough to include for example "events" in the key, so both the search query and the regular fetch events query will be triggered, add exact: true to the Object to avoid this behaviour)
+      console.log("SUCCESS?")
+      navigate("../");
+    }, //will trigger if the mutation is successful
+  });
+
+  const deleteProjection = () => {
+    mutate();
+  };
+
   return (
     <div className={classes.container}>
       <h1>Projection Details Page</h1>
@@ -80,7 +109,11 @@ export default function ProjectionItem({ projection }) {
                 ? classes.disabled
                 : ""
             }`}
-            disabled={projection.reservedSeatIds.includes(seat.id)}
+            disabled={
+              projection.reservedSeatIds.includes(seat.id) ||
+              !authObject ||
+              isAdmin()
+            }
           >
             {seat.number}
           </button>
@@ -90,12 +123,26 @@ export default function ProjectionItem({ projection }) {
         <span className={classes.redSquare}></span>Seats marked as red are
         reserved!
       </p>
-      <p style={{color: "green"}}>Total price: {totalPrice} RSD</p>
-      <div>
-        <button className={classes.checkoutButton} onClick={checkout}>
-          Checkout
-        </button>
-      </div>
+      {authObject && (
+        <>
+          <p style={{ color: "green" }}>Total price: {totalPrice} RSD</p>
+
+          <div>
+            {isAdmin() ? (
+              <button
+                className={classes.deleteProjectionButton}
+                onClick={deleteProjection}
+              >
+                Delete
+              </button>
+            ) : (
+              <button className={classes.checkoutButton} onClick={checkout}>
+                Checkout
+              </button>
+            )}
+          </div>
+        </>
+      )}
     </div>
   );
 }

@@ -1,0 +1,40 @@
+.content {
+  text-align: center;
+}
+
+/* .container {
+  display: table-cell;
+  padding: 3%;
+  width: 50%;
+  position: relative;
+  vertical-align: top;
+} */
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Optional: set the height to fill the viewport */
+}
+
+.centeredContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.centeredContent h1 {
+  text-align: center; /* Reset the default margin for h1 */
+  font-size: 50px;
+}
+
+p {
+  margin: 20px;
+  font-size: 20px;
+}
+
+img {
+  width: 50%;
+}
+
+

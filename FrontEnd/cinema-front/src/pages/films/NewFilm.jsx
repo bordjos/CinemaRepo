@@ -4,41 +4,41 @@ export default function NewFilm() {
   return <FilmForm method="post" />;
 }
 
-// export async function action({ request, params }) {
-//   const data = await request.formData(); // extracting the submitted form data
+export async function action({ request, params }) {
+  const data = await request.formData(); // extracting the submitted form data
 
-//   // must match the name props on the form elements
-//   const filmData = {
-//     name: data.get("name"),
-//     director: data.get("director"),
-//     cast: data.get("cast"),
-//     length: data.get("length"),
-//     distributor: data.get("distributor"),
-//     country: data.get("country"),
-//     year: data.get("year"),
-//     about: data.get("about"),
-//     posterUrl: data.get("posterUrl"),
-//   };
+  // must match the name props on the form elements
+  const filmData = {
+    name: data.get("name"),
+    director: data.get("director"),
+    cast: data.get("cast"),
+    length: data.get("length"),
+    distributor: data.get("distributor"),
+    country: data.get("country"),
+    year: data.get("year"),
+    about: data.get("about"),
+    posterUrl: data.get("posterUrl"),
+  };
 
-//   console.log("filmData: " + filmData);
+  console.log("filmData: " + filmData);
 
-//   const response = await CinemaAxios.post("/films", filmData)
-//     .then((res) => {
-//       console.log(res.data);
-//       return redirect("/films");
-//     })
-//     .catch((error) => {
-//       // throw json(
-//       //   { message: error.response?.data?.errors?.[0]?.defaultMessage },
-//       //   { status: 500 }
-//       // );
-//       console.log("TJKLDFS" + error.response.data);
-//       return error.response.data;
-//     });
+  const response = await CinemaAxios.post("/films", filmData)
+    .then((res) => {
+      console.log(res.data);
+      return redirect("/films");
+    })
+    .catch((error) => {
+      // throw json(
+      //   { message: error.response?.data?.errors?.[0]?.defaultMessage },
+      //   { status: 500 }
+      // );
+      console.log("TJKLDFS" + error.response.data);
+      return error.response.data;
+    });
 
-//   // return redirect("/films");
-//   return response;
-// }
+  // return redirect("/films");
+  return response;
+}
 
 // export async function action({ request, params }) {
 //   try {

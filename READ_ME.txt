@@ -23,10 +23,13 @@ The usernames and passwords for the existing users are the same: 'miroslav'(ADMI
 Packages being used (for now):
 - axios
 - react-router-dom
+- tanstack/react-query
 
 Plan on adding later on: 
 - react-redux
-- tanstack/react-query
 - millionjs
 - tailwind (maybe)
+
+Change logs:
+29.01.2024 - I have opted not to rely on the loader and action methods from react-router-dom package, instead I'm going to focus on implementing React Query features, which will require changing the code altogether. I left the old Front End code in the FrontEnd folder, the new code is in the FrontEndMain folder, so run the app from that folder instead.
 

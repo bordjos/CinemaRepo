@@ -85,6 +85,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				UsernamePasswordAuthenticationFilter.class);
 	}
 
+	//overriding the dafult Spring Security CORS handling
 	@Bean
 	CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration configuration = new CorsConfiguration();
